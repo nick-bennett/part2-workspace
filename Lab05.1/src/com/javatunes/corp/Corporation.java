@@ -11,16 +11,17 @@ package com.javatunes.corp;
 import gov.irs.TaxPayer;
 
 public class Corporation
-implements TaxPayer {
+    implements TaxPayer {
+
   private String name;
-  
+
   public Corporation() {
   }
-  
+
   public Corporation(String name) {
     setName(name);
   }
-  
+
   @Override  // interface TaxPayer
   public double payTaxes() {
     double taxes = 0;
@@ -31,6 +32,7 @@ implements TaxPayer {
   public String getName() {
     return this.name;
   }
+
   public void setName(String name) {
     this.name = name;
   }

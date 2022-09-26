@@ -9,12 +9,12 @@
 package com.javatunes.product;
 
 public class MediaPlayer
-extends Product {
-  
+    extends Product {
+
   public MediaPlayer(String code) {
     super(code);
   }
-  
+
   @Override
   public Double getPrice() {
     return 50.0;
