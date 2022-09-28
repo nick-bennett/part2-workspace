@@ -8,8 +8,7 @@
  */
 package com.javatunes.thread;
 
-public class RepeatingPrinter
-implements Runnable {
+public class RepeatingPrinter implements Runnable {
 
   @Override
   public void run() {
@@ -17,8 +16,8 @@ implements Runnable {
       System.out.println("RepeatingPrinter.run");
       try {
         Thread.sleep(1000);
-      }
-      catch (InterruptedException e) {
+      } catch (InterruptedException e) {
+        // Ignore this exception; get on with life.
       }
     }
   }
