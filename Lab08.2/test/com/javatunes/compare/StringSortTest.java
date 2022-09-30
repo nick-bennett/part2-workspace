@@ -14,7 +14,9 @@ import java.util.List;
 import org.junit.Test;
 
 public class StringSortTest {
-  
+
+  private static final Comparator<String> ASCENDING_LENGTH_COMPARATOR = StringSortTest::compareStrings;
+
   private List<String> names  = Arrays.asList("Jason", "Martin", "Jack", "Mary", "Jill", "Frederick", "Laurie", "Ed");
   private List<String> sports = Arrays.asList("football", "baseball", "tennis", "soccer", "squash", "rugby", "racquetball", "golf", "cricket", "basketball");
   
@@ -22,14 +24,12 @@ public class StringSortTest {
   public void testSortLambda() {
     System.out.println("testSortLambda:");
 
-    Comparator<String> ascendingLengthComparator = (str1, str2) -> str1.length() - str2.length();
-
     System.out.println("Names sort - increasing length - lambda:");
-    names.sort(ascendingLengthComparator);
+    names.sort((str1, str2) -> str1.length() - str2.length());
     System.out.println(names + "\n");
     
     System.out.println("Sports sort - increasing length - lambda:");
-    sports.sort(ascendingLengthComparator);
+    sports.sort((str1, str2) -> str1.length() - str2.length());
     System.out.println(sports);
   }
   
@@ -51,15 +51,15 @@ public class StringSortTest {
   @Test
   public void testSortMethodReference() {
     System.out.println("testSortMethodReference:");
-    
+
     // TODO: sort names by using a method reference
     System.out.println("Names sort - increasing length - method reference:");
-    names.sort(StringSortTest::compareStrings);
+    names.sort(ASCENDING_LENGTH_COMPARATOR);
     System.out.println(names + "\n");
     
     // TODO: sort sports by using a method reference
     System.out.println("Sports sort - increasing length - method reference:");
-    sports.sort(StringSortTest::compareStrings);
+    sports.sort(ASCENDING_LENGTH_COMPARATOR);
     System.out.println(sports);
   }
   
